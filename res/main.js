@@ -51,6 +51,7 @@ $(document)
         <button id="startBtn@id@" class="btn btn-primary">Start Position</button>
         <button id="clearBtn@id@" class="btn btn-info">Clear Board</button>
         <button id="copyFromPrev@id@" class="btn btn-link">Copy from previous</button>
+        <button id="showFEN@id@" class="btn btn-info">Show FEN</button>
     </div>
     </div>
 </div>
@@ -82,6 +83,14 @@ $(document)
 
                 var previousChessboard = chessboards[numberBoards - 1];
                 board.position(previousChessboard.position());
+            });
+
+            $('#showFEN' + numberBoards).on('click', function() {
+                var title = 'Board ' + numberBoards + ' FEN';
+
+                return eModal
+                    .alert(board.fen(), title);
+                    //.then(function () { t8.facebook('Alert modal is visible.', title); });
             });
         }
 
