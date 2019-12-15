@@ -14,6 +14,16 @@ $(document)
                 <button id="clearBtn@id@" class="btn btn-info">Clear Board</button>
                 <button id="copyFromPrev@id@" class="btn btn-link">Copy from previous</button>
                 <button id="showFEN@id@" class="btn btn-info">Show FEN</button>
+                <form>
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="move@id@" placeholder="Move (eg. e2-e4)">
+                        </div>
+                        <label for="inputPassword" class="col-sm-2 col-form-label">
+                        <button id="moveBtn@id@" class="btn btn-info">Move</button>
+                    </label>
+                    </div>
+                </form>
             </div>
             </div>
         </div>
@@ -27,6 +37,16 @@ $(document)
                 <button id="startBtn@id@" class="btn btn-primary">Start Position</button>
                 <button id="clearBtn@id@" class="btn btn-info">Clear Board</button>
                 <button id="showFEN@id@" class="btn btn-info">Show FEN</button>
+                <form>
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="move@id@" placeholder="Move (eg. e2-e4)">
+                        </div>
+                        <label for="inputPassword" class="col-sm-2 col-form-label">
+                        <button id="moveBtn@id@" class="btn btn-info">Move</button>
+                    </label>
+                    </div>
+                </form>
             </div>
             </div>
         </div>
