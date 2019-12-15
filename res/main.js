@@ -7,6 +7,7 @@ $(document)
 
         const htmlElementWithPrevious = `
         <div class="col-sm-4 text-center"><div class="row">
+            <div class="col-sm-1 text-center"></div>
             <div class="col-sm-10 text-center">
                 <h1>Board @id@</h1>
                 <div id="board@id@" class="small-board chess-board"></div>
@@ -22,6 +23,8 @@ $(document)
                         <label for="moveBtn@id@" class="col-sm-2 col-form-label">
                         <button id="moveBtn@id@" class="btn btn-info">Move</button>
                     </label>
+                    <textarea rows="4" cols="40" style="border:solid 3px orange;">
+                    </textarea>
                     </div>
                 </form>
             </div>
@@ -31,6 +34,7 @@ $(document)
 
                     const htmlElementWithoutPrevious = `
         <div class="col-sm-4 text-center"><div class="row">
+            <div class="col-sm-1 text-center"></div>
             <div class="col-sm-10 text-center">
                 <h1>Board @id@</h1>
                 <div id="board@id@" class="small-board chess-board"></div>
@@ -45,6 +49,8 @@ $(document)
                         <label for="moveBtn@id@" class="col-sm-2 col-form-label">
                         <button id="moveBtn@id@" class="btn btn-info">Move</button>
                     </label>
+                    <textarea rows="4" cols="40" style="border:solid 3px orange;">
+                    </textarea>
                     </div>
                 </form>
             </div>
