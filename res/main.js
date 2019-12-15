@@ -28,7 +28,7 @@ $(document)
             </div>
         </div>
         `;
-        
+
                     const htmlElementWithoutPrevious = `
         <div class="col-sm-4 text-center"><div class="row">
             <div class="col-sm-10 text-center">
@@ -99,11 +99,11 @@ $(document)
 
             if (!isFirstBoard) {
                 $('#copyFromPrev' + numberBoards).on('click', function() {
-                    // Disabled for the first one ... 
+                    // Disabled for the first one ...
                     if (numberBoards == 0) {
                         return;
                     }
-    
+
                     var previousChessboard = chessboards[numberBoards - 1];
                     board.position(previousChessboard.position());
                 });
@@ -117,7 +117,8 @@ $(document)
                     //.then(function () { t8.facebook('Alert modal is visible.', title); });
             });
 
-            $('#moveBtn' + numberBoards).on('click', function() {
+            $('#moveBtn' + numberBoards).on('click', function(e) {
+                e.preventDefault();
                 var movementText = $('#movement' + numberBoards).val();
                 board.move(movementText);
             });
