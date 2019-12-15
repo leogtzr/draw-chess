@@ -17,7 +17,7 @@ $(document)
                 <form>
                     <div class="form-group row">
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="move@id@" placeholder="Move (eg. e2-e4)">
+                            <input type="text" class="form-control" id="movement@id@" placeholder="Move (eg. e2-e4)" required>
                         </div>
                         <label for="inputPassword" class="col-sm-2 col-form-label">
                         <button id="moveBtn@id@" class="btn btn-info">Move</button>
@@ -40,7 +40,7 @@ $(document)
                 <form>
                     <div class="form-group row">
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="move@id@" placeholder="Move (eg. e2-e4)">
+                            <input type="text" class="form-control" id="movement@id@" placeholder="Move (eg. e2-e4)" required>
                         </div>
                         <label for="inputPassword" class="col-sm-2 col-form-label">
                         <button id="moveBtn@id@" class="btn btn-info">Move</button>
@@ -52,21 +52,6 @@ $(document)
         </div>
         `;
 
-        // Chessboard('board1', {
-        //     position: 'start',
-        //     showNotation: true,
-        //     dropOffBoard: 'trash',
-        //     sparePieces: true
-        // });
-
-        // Chessboard('board2', {
-        //     position: 'start',
-        //     showNotation: true,
-        //     dropOffBoard: 'trash',
-        //     sparePieces: true
-        // });
-
-        // _checkAds();
         /* smooth scrolling sections */
         $('#navbar-collapsible li')
             .on('activate.bs.scrollspy', _scrollspy)
@@ -131,6 +116,13 @@ $(document)
                     .alert(board.fen(), title);
                     //.then(function () { t8.facebook('Alert modal is visible.', title); });
             });
+
+            $('#moveBtn' + numberBoards).on('click', function() {
+                var movementText = $('#movement' + numberBoards).val();
+                board.move(movementText);
+            });
+
+            // $('#movement' + )
         }
 
         // Demos
@@ -217,24 +209,5 @@ $(document)
             }, 400);
         }
 
-        // function _checkAds() {
-        //     setTimeout(function () {
-        //         var isBlocked = !$('.adsbygoogle')[0].children.length;
-
-        //         if (window.ga) {
-        //             window.ga('send', 'event', 'adBlock', isBlocked ? 'blocked' : 'allowed');
-        //         }
-        //         if (isBlocked) {
-        //             eModal.confirm('Please help us to maintain this project by disabling your Advertising blocker in our page. :(', 'Advertising blocker not allowed')
-        //                 .then(function () {
-        //                     location.reload();
-        //                 });
-
-        //             $("h4, code, strong, td").text(function (_, ctx) {
-        //                 return ctx.replace(/\b/g, " AdBlock ");
-        //             });
-        //         }
-        //     }, 5000);
-        // }
         //#endregion
     });
