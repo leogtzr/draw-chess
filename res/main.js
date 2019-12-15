@@ -5,6 +5,33 @@ $(document)
         var t8 = window.toastr8;
         var chessboards = [];
 
+        const htmlElementWithPrevious = `
+        <div class="col-sm-4 text-center"><div class="row">
+            <div class="col-sm-10 text-center">
+                <h1>Board @id@</h1>
+                <div id="board@id@" class="small-board chess-board"></div>
+                <button id="startBtn@id@" class="btn btn-primary">Start Position</button>
+                <button id="clearBtn@id@" class="btn btn-info">Clear Board</button>
+                <button id="copyFromPrev@id@" class="btn btn-link">Copy from previous</button>
+                <button id="showFEN@id@" class="btn btn-info">Show FEN</button>
+            </div>
+            </div>
+        </div>
+        `;
+        
+                    const htmlElementWithoutPrevious = `
+        <div class="col-sm-4 text-center"><div class="row">
+            <div class="col-sm-10 text-center">
+                <h1>Board @id@</h1>
+                <div id="board@id@" class="small-board chess-board"></div>
+                <button id="startBtn@id@" class="btn btn-primary">Start Position</button>
+                <button id="clearBtn@id@" class="btn btn-info">Clear Board</button>
+                <button id="showFEN@id@" class="btn btn-info">Show FEN</button>
+            </div>
+            </div>
+        </div>
+        `;
+
         // Chessboard('board1', {
         //     position: 'start',
         //     showNotation: true,
@@ -43,24 +70,13 @@ $(document)
         }
 
         function createBoard() {
-            const htmlElement = `
-<div class="col-sm-4 text-center"><div class="row">
-    <div class="col-sm-10 text-center">
-        <h1>Board @id@</h1>
-        <div id="board@id@" class="small-board chess-board"></div>
-        <button id="startBtn@id@" class="btn btn-primary">Start Position</button>
-        <button id="clearBtn@id@" class="btn btn-info">Clear Board</button>
-        <button id="copyFromPrev@id@" class="btn btn-link">Copy from previous</button>
-        <button id="showFEN@id@" class="btn btn-info">Show FEN</button>
-    </div>
-    </div>
-</div>
-`;
-            var numberBoards = numberOfBoards();
-            var html = htmlElement.replace("@id@", (numberBoards + 1));
-            html = html.split("@id@").join(numberBoards);
 
-            console.log(html);
+            var isFirstBoard = numberOfBoards() == 0;
+
+            var numberBoards = numberOfBoards();
+            var html = isFirstBoard ? htmlElementWithoutPrevious : htmlElementWithPrevious;
+            html = html.replace("@id@", (numberBoards + 1));
+            html = html.split("@id@").join(numberBoards);
 
             $('#boards').append(html);
 
@@ -75,15 +91,18 @@ $(document)
 
             $('#startBtn' + numberBoards).on('click', board.start);
             $('#clearBtn' + numberBoards).on('click', board.clear);
-            $('#copyFromPrev' + numberBoards).on('click', function() {
-                // Disabled for the first one ... 
-                if (numberBoards == 0) {
-                    return;
-                }
 
-                var previousChessboard = chessboards[numberBoards - 1];
-                board.position(previousChessboard.position());
-            });
+            if (!isFirstBoard) {
+                $('#copyFromPrev' + numberBoards).on('click', function() {
+                    // Disabled for the first one ... 
+                    if (numberBoards == 0) {
+                        return;
+                    }
+    
+                    var previousChessboard = chessboards[numberBoards - 1];
+                    board.position(previousChessboard.position());
+                });
+            }
 
             $('#showFEN' + numberBoards).on('click', function() {
                 var title = 'Board ' + numberBoards + ' FEN';
