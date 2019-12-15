@@ -19,7 +19,7 @@ $(document)
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="movement@id@" placeholder="Move (eg. e2-e4)" required>
                         </div>
-                        <label for="inputPassword" class="col-sm-2 col-form-label">
+                        <label for="moveBtn@id@" class="col-sm-2 col-form-label">
                         <button id="moveBtn@id@" class="btn btn-info">Move</button>
                     </label>
                     </div>
@@ -42,7 +42,7 @@ $(document)
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="movement@id@" placeholder="Move (eg. e2-e4)" required>
                         </div>
-                        <label for="inputPassword" class="col-sm-2 col-form-label">
+                        <label for="moveBtn@id@" class="col-sm-2 col-form-label">
                         <button id="moveBtn@id@" class="btn btn-info">Move</button>
                     </label>
                     </div>
@@ -121,8 +121,6 @@ $(document)
                 var movementText = $('#movement' + numberBoards).val();
                 board.move(movementText);
             });
-
-            // $('#movement' + )
         }
 
         // Demos
