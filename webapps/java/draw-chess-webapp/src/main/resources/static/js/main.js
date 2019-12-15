@@ -23,7 +23,8 @@ $(document)
                         <label for="moveBtn@id@" class="col-sm-2 col-form-label">
                         <button id="moveBtn@id@" class="btn btn-info">Move</button>
                     </label>
-                    <textarea rows="4" cols="40" style="border:solid 3px orange;"></textarea>
+                    <textarea rows="4" cols="40" style="border:solid 3px orange;">
+                    </textarea>
                     </div>
                 </form>
             </div>
@@ -48,7 +49,8 @@ $(document)
                         <label for="moveBtn@id@" class="col-sm-2 col-form-label">
                         <button id="moveBtn@id@" class="btn btn-info">Move</button>
                     </label>
-                    <textarea rows="4" cols="40" style="border:solid 3px orange;"></textarea>
+                    <textarea rows="4" cols="40" style="border:solid 3px orange;">
+                    </textarea>
                     </div>
                 </form>
             </div>
@@ -180,17 +182,8 @@ $(document)
             return eModal
                 .prompt({ size: eModal.size.sm, message: 'What\'s your name?', title: title })
                 .then(
-                    function (input) {
-                        // t8.github({ message: 'Hi ' + input + '!', title: title, imgURI: 'https://avatars0.githubusercontent.com/u/4276775?v=3&s=89' })
-                        // alert('Holis ... ' + input);
-                        // console.log(chessboards.length);
-                        chessboards.forEach(e => {
-                            console.log(e.fen());
-                        })
-                    },
-                    function (/**/) {
-                        t8.android('Why don\'t you tell me your name?', title);
-                    });
+                    function (input) { t8.github({ message: 'Hi ' + input + '!', title: title, imgURI: 'https://avatars0.githubusercontent.com/u/4276775?v=3&s=89' }) },
+                    function (/**/) { t8.android('Why don\'t you tell me your name?', title); });
         }
 
         //#region Page Events
