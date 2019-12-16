@@ -23,8 +23,7 @@ $(document)
                         <label for="moveBtn@id@" class="col-sm-2 col-form-label">
                         <button id="moveBtn@id@" class="btn btn-info">Move</button>
                     </label>
-                    <textarea rows="4" cols="40" style="border:solid 3px orange;">
-                    </textarea>
+                    <textarea rows="4" cols="40" class="board-notes" id="notes@id@"></textarea>
                     </div>
                 </form>
             </div>
@@ -49,8 +48,7 @@ $(document)
                         <label for="moveBtn@id@" class="col-sm-2 col-form-label">
                         <button id="moveBtn@id@" class="btn btn-info">Move</button>
                     </label>
-                    <textarea rows="4" cols="40" style="border:solid 3px orange;">
-                    </textarea>
+                    <textarea rows="4" cols="40" class="board-notes" id="notes@id@"></textarea>
                     </div>
                 </form>
             </div>
