@@ -180,8 +180,41 @@ $(document)
             return eModal
                 .prompt({ size: eModal.size.sm, message: 'What\'s your name?', title: title })
                 .then(
-                    function (input) { t8.github({ message: 'Hi ' + input + '!', title: title, imgURI: 'https://avatars0.githubusercontent.com/u/4276775?v=3&s=89' }) },
-                    function (/**/) { t8.android('Why don\'t you tell me your name?', title); });
+                    function (name) {
+                        // t8.github({ message: 'Hi ' + input + '!', title: title, imgURI: 'https://avatars0.githubusercontent.com/u/4276775?v=3&s=89' })
+                        // alert('Holis ... ' + input);
+                        // console.log(chessboards.length);
+
+                        var boards = [];
+
+                        for (i = 0; i < chessboards.length; i++) {
+                            var notes = $('#notes' + i).val();
+                            var b = {fen: chessboards[i].fen(), notes: notes};
+                            boards.push(b);
+                        }
+
+                        var game = {"name": name, "boards": boards};
+
+                        $.ajax({
+                            data: JSON.stringify(game),
+                            method: 'POST',
+                            url: 'save',
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            async: true
+                          })
+                          .done(function(data) {
+                            console.log(':)');
+                            console.log(data);
+                          })
+                          .fail(function(jqXHR, textStatus) {
+                            console.log(jqXHR);
+                            console.log(textStatus);
+                          });
+                    },
+                    function (/**/) {
+                        t8.android('Why don\'t you tell me your name?', title);
+                    });
         }
 
         //#region Page Events
