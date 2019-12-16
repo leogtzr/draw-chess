@@ -33,5 +33,5 @@ CREATE TABLE IF NOT EXISTS game (
   date date DEFAULT NULL,
   fen varchar(300) NOT NULL,
   notes varchar(500) NOT NULL,
-  PRIMARY KEY (id, name)
+  PRIMARY KEY (id)
 );

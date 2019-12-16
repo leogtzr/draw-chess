@@ -15,7 +15,7 @@ public class ChessPieces implements Serializable {
 
     public ChessPieces() {}
 
-    public ChessPieces(String name, List<BoardPosition> boards) {
+    public ChessPieces(final String name, final List<BoardPosition> boards) {
         this.name = name;
         this.boards = boards;
     }

@@ -10,14 +10,13 @@ import java.sql.Date;
 @Data
 @ToString
 @Entity
-@IdClass(GameId.class)
 public class Game implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Id
+    // @Id
     private String name;
 
     private Date date;
