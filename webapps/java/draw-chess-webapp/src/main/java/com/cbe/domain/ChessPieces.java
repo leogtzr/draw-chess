@@ -6,7 +6,7 @@ import lombok.ToString;
 import java.io.Serializable;
 import java.util.List;
 
-// @Data
+@Data
 @ToString
 public class ChessPieces implements Serializable {
 
@@ -20,19 +20,4 @@ public class ChessPieces implements Serializable {
         this.boards = boards;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<BoardPosition> getBoards() {
-        return boards;
-    }
-
-    public void setBoards(List<BoardPosition> boards) {
-        this.boards = boards;
-    }
 }

@@ -181,9 +181,6 @@ $(document)
                 .prompt({ size: eModal.size.sm, message: 'What\'s your name?', title: title })
                 .then(
                     function (name) {
-                        // t8.github({ message: 'Hi ' + input + '!', title: title, imgURI: 'https://avatars0.githubusercontent.com/u/4276775?v=3&s=89' })
-                        // alert('Holis ... ' + input);
-                        // console.log(chessboards.length);
 
                         var boards = [];
 
@@ -206,10 +203,12 @@ $(document)
                           .done(function(data) {
                             console.log(':)');
                             console.log(data);
+                            t8.success('Boards saved', 'Boards saved');
                           })
                           .fail(function(jqXHR, textStatus) {
                             console.log(jqXHR);
                             console.log(textStatus);
+                            t8.android('There was an error saving the boards ... ', 'Error');
                           });
                     },
                     function (/**/) {

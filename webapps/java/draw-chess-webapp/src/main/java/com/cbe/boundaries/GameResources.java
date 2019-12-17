@@ -9,12 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
-import java.util.Calendar;
 
 @RestController
 public class GameResources {
-
-    // private static final Calendar CALENDAR = Calendar.getInstance();
 
     @Autowired
     private GameRepository gameRepository;

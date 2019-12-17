@@ -26,7 +26,7 @@
 --  PRIMARY KEY (id)
 --);
 --
-DROP TABLE IF EXISTS game;
+-- DROP TABLE IF EXISTS game;
 CREATE TABLE IF NOT EXISTS game (
   id int(11) NOT NULL AUTO_INCREMENT,
   name varchar(200) NOT NULL,
