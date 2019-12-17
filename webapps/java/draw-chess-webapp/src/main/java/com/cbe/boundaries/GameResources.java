@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
+import java.util.List;
 
 @RestController
 public class GameResources {
@@ -34,7 +35,12 @@ public class GameResources {
         });
 
         return ResponseEntity.ok(chessPieces);
+    }
 
+    @GetMapping("/gamenames")
+    @ResponseBody
+    public ResponseEntity<List<String>> names() {
+        return ResponseEntity.ok(gameRepository.names());
     }
 
 }

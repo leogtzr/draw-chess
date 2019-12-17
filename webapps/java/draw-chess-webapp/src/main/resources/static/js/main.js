@@ -67,7 +67,7 @@ $(document)
         $(iconPrefix + 'ok').click(confirmDemo);
         $(iconPrefix + 'pencil').click(promptDemo);
         $(iconPrefix + 'screenshot').click(iframeDemo);
-        $('#cmn').click(promptDemo);
+        $('#save').click(promptDemo);
 
         $('#new-board').click(function() {
             createBoard();

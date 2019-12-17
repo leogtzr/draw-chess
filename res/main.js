@@ -67,7 +67,20 @@ $(document)
         $(iconPrefix + 'ok').click(confirmDemo);
         $(iconPrefix + 'pencil').click(promptDemo);
         $(iconPrefix + 'screenshot').click(iframeDemo);
-        $('#cmn').click(promptDemo);
+        $('#save').click(promptDemo);
+
+        $('#viewgames').click(function() {
+            console.log('Holis ... ');
+            $.get("http://localhost:8080/gamenames", function(data) {
+                console.log(data);
+              })
+            // .done(function() {
+            //     alert( "second success" );
+            // })
+            .fail(function() {
+                alert( "error" );
+            });
+        });
 
         $('#new-board').click(function() {
             createBoard();
