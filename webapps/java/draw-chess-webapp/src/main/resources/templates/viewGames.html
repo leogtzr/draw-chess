@@ -86,7 +86,7 @@
                     </thead>
                     <tbody>
                         <tr th:each="name: ${names}">
-                            <td th:text="${name}"/>
+                            <td><a class="loadgame" th:text="${name}"></a></td>
                         </tr>
                     </tbody>
                 </table>

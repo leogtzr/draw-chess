@@ -69,6 +69,12 @@ $(document)
         $(iconPrefix + 'screenshot').click(iframeDemo);
         $('#save').click(promptDemo);
 
+        $('.loadgame').click(function(e) {
+            var gameToLoad = $(this).text();
+            console.log(gameToLoad);
+            e.preventDefault();
+        });
+
         $('#new-board').click(function() {
             createBoard();
         });
