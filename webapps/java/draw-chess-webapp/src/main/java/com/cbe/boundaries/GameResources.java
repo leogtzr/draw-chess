@@ -5,10 +5,12 @@ import com.cbe.domain.Game;
 import com.cbe.persistence.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -41,6 +43,11 @@ public class GameResources {
     @ResponseBody
     public ResponseEntity<List<String>> names() {
         return ResponseEntity.ok(gameRepository.names());
+    }
+
+    @GetMapping(path = "/games/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Game>> games(@PathVariable("name") final String name) {
+        return new ResponseEntity<List<Game>>(gameRepository.findByName(name), HttpStatus.OK);
     }
 
 }

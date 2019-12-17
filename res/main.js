@@ -72,6 +72,7 @@ $(document)
         $('.loadgame').click(function(e) {
             var gameToLoad = $(this).text();
             console.log(gameToLoad);
+            // CALL ...
             e.preventDefault();
         });
 
