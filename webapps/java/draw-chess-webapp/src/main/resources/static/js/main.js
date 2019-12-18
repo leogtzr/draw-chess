@@ -31,7 +31,7 @@ $(document)
         </div>
         `;
 
-                    const htmlElementWithoutPrevious = `
+        const htmlElementWithoutPrevious = `
         <div class="col-sm-4 text-center"><div class="row">
             <div class="col-sm-1 text-center"></div>
             <div class="col-sm-10 text-center">
@@ -56,6 +56,22 @@ $(document)
         </div>
         `;
 
+        const htmlLoadGame = `
+            <div class="col-sm-4 text-center"><div class="row">
+                <div class="col-sm-1 text-center"></div>
+                <div class="col-sm-10 text-center">
+                    <h1>Board @loaded.id@</h1>
+                    <div id="loaded.board@id@" class="small-board chess-board"></div>
+                    <form>
+                        <textarea rows="4" cols="40" class="board-notes" id="loaded.notes@id@" readonly="readonly">loaded.text@id@</textarea>
+                        </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+            `;
+
+
         /* smooth scrolling sections */
         $('#navbar-collapsible li')
             .on('activate.bs.scrollspy', _scrollspy)
@@ -70,10 +86,35 @@ $(document)
         $('#save').click(promptDemo);
 
         $('.loadgame').click(function(e) {
+
+            $('#savedgames').empty();
+
             var gameToLoad = $(this).text();
-            console.log(gameToLoad);
-            e.preventDefault();
-        });
+
+            $.get('games/' + gameToLoad, function(data) {
+                data.forEach(function(element, index, array) {
+                    var html = htmlLoadGame;
+                    html = html.replace('@loaded.id@', index + 1);
+                    html = html.replace("loaded.board@id@", 'loaded' + index);
+                    html = html.replace("loaded.notes@id@", 'loadednotes' + index);
+                    html = html.replace("loaded.text@id@", element.notes);
+
+                    $('#savedgames').append(html);
+                    var board = Chessboard('loaded' + index, {
+                        position: element.fen,
+                        showNotation: true,
+                        dropOffBoard: 'trash',
+                        sparePieces: true
+                    });
+                });
+              })
+            // .done(function() {
+            //     alert( "second success" );
+            // })
+            .fail(function() {
+                alert( "error" );
+            });
+            });
 
         $('#new-board').click(function() {
             createBoard();
@@ -212,9 +253,8 @@ $(document)
                             t8.success('Boards saved', 'Boards saved');
                           })
                           .fail(function(jqXHR, textStatus) {
-                            console.log(jqXHR);
-                            console.log(textStatus);
                             t8.android('There was an error saving the boards ... ', 'Error');
+                            console.log(textStatus);
                           });
                     },
                     function (/**/) {

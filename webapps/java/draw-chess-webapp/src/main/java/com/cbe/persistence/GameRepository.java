@@ -1,6 +1,5 @@
 package com.cbe.persistence;
 
-import com.cbe.domain.ChessBoard;
 import com.cbe.domain.Game;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

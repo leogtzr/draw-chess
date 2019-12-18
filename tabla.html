@@ -43,6 +43,12 @@
             -moz-border-radius: 5px;
             border-radius: 9px;
         }
+
+        #demo {
+            padding-top: 30px;
+            /* padding-bottom: 50px;
+            padding-top: 30px; */
+        }
     </style>
 
     <!--[if lt IE 9]>
@@ -76,7 +82,7 @@
         <!-- <a class="row btn btn-sm github-button" itemprop="url" id="new-board">
             <div class="col-xs-9 text-center"><small>New</small><br><span class="fa-2x"> board </span></div>
         </a> -->
-        <section class="container-fluid" id="demo">
+        <div class="container-fluid" id="demo">
 
             <div class="container">
                 <div class="row">
@@ -88,10 +94,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><a class="loadgame" href="load.do?name=kaka">Alrpvw</a></td>
-                            </tr>
-                            <tr>
-                                <td><a class="loadgame" href="load.do?name=kaka2">Alrpvw 2</a></td>
+                                <td><a class="loadgame" href="#loadedgames">kaka</a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -100,6 +103,13 @@
             <br />
             <br />
 
+        </div>
+
+        <section class="container-fluid" id="loadedgames">
+            <div class="container">
+                <div class="row" itemprop="about" id="savedgames">
+                </div>
+            </div>
         </section>
 
         <footer id="footer" class="">
