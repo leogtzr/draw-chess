@@ -1,0 +1,15 @@
+.chess-board {
+    width: 280px
+}
+
+.board-notes {
+    border:solid 2px orange;
+    color: black;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 9px;
+}
+
+#demo {
+    padding-top: 30px;
+}
