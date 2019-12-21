@@ -258,7 +258,7 @@ $(document)
                           });
                     },
                     function (/**/) {
-                        t8.android('Why don\'t you tell me your name?', title);
+                        t8.android('Saving cancelled ... ', title);
                     });
         }
 
