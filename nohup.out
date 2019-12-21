@@ -1,0 +1,9 @@
+Gtk-Message: Failed to load module "appmenu-gtk-module"
+Gtk-Message: Failed to load module "appmenu-gtk-module"
+Gtk-Message: Failed to load module "canberra-gtk-module"
+Gtk-Message: Failed to load module "canberra-gtk-module"
+state:  update-not-available
+
+(gitkraken:16131): IBUS-WARNING **: The owner of /home/leo/snap/gitkraken/147/.config/ibus/bus is not leo!
+state:  update-not-available
+Gtk-Message: GtkDialog mapped without a transient parent. This is discouraged.
